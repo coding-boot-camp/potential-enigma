@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown.js');
+const fs = require('fs');
 
 // array of questions for user
 const questions = [
@@ -80,7 +81,8 @@ const questions = [
 const mockData = {
     title: 'game-finder',
     github: 'sithSlave',
-    confirmEmail: false,
+    confirmEmail: true,
+    email: 'talk2joshbgosh@gmail.com',
     description: 'an app to help users determine what game to buy. It also shows you where you can buy the game, and displays reviews.',
     installInstructions: 'https://sithslave.github.io/game-finder/',
     usageInfo: 'Public Domain',
@@ -93,11 +95,26 @@ const promptUser = () => {
     // .then(data => {
     //     console.log(data);
     //     
+    writeToFile(mockData);
     // })
 }
 
 // function to write README file
-function writeToFile(fileName, data) {
+function writeToFile(data) {
+    return new Promise((resolve, reject) => {
+        fs.writeFile('./dist/README.md', generateMarkdown(data), err => {
+            if (err) {
+                reject(err);
+                return;
+            }
+
+            resolve({
+                ok: true,
+                message: 'File Created!'
+            });
+        });
+    })
+    
 }
 
 // function to initialize program
