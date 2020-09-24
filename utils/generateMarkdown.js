@@ -12,10 +12,13 @@ const generateOptSections = data => {
   console.log(dataArr);
   let sections = ``;
 
-  // for 
+  for (let i = 0; i < dataArr.length; i++) {
+    if (dataArr[i][1]) {
+      sections += `asdfkl;lsdfkja;jlkfsda;`
+    }
+  } 
 
-  return `
-  `;
+  return sections;
 }
 
 // function to generate markdown for README
