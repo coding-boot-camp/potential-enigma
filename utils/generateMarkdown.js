@@ -1,5 +1,8 @@
 const generateSection = sectionArr => {
-
+  // switch (sectionArr[0]) {
+  //   case 
+  // }
+  let sectionMd = ``;
 }
 
 const generateOptSections = data => {
@@ -9,12 +12,13 @@ const generateOptSections = data => {
   } else {
     dataArr = Object.entries(data).slice(4, Object.entries(data).length);
   }
-  console.log(dataArr);
   let sections = ``;
 
+  console.log(dataArr);
   for (let i = 0; i < dataArr.length; i++) {
+    console.log(dataArr[i][0]);
     if (dataArr[i][1]) {
-      sections += `asdfkl;lsdfkja;jlkfsda;`
+      sections += generateSection(dataArr[i]);
     }
   } 
 

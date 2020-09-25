@@ -81,7 +81,7 @@ const questions = [
 const mockData = {
     title: 'game-finder',
     github: 'sithSlave',
-    confirmEmail: false,
+    confirmEmail: true,
     email: 'talk2joshbgosh@gmail.com',
     description: 'an app to help users determine what game to buy. It also shows you where you can buy the game, and displays reviews.',
     installInstructions: 'https://sithslave.github.io/game-finder/',
