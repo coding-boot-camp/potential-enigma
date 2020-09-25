@@ -57,53 +57,39 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'installInstructions',
+        name: 'Installation',
         message: 'How do you install the application?'
     },
     {
         type: 'input',
-        name: 'usageInfo',
+        name: 'Usage',
         message: 'How can people use your app?',
         choices: ['Public Domain', 'Permissive', 'Copyleft (Protective)', 'Noncommercial', 'Proprietary', 'Trade secret']
     },
     {
         type: 'list',
-        name: 'licenseInfo',
+        name: 'License',
         message: 'Select the usage license for the product.',
         choices: ['Public Domain', 'Permissive', 'Copyleft', 'Noncommercial', 'Proprietary', 'Trade secret']
     },
     {
         type: 'input',
-        name: 'contGuide',
+        name: 'Contributing',
         message: 'Describe how people can contribute.'
     },
     {
         type: 'input',
-        name: 'testInstructions',
+        name: 'Tests',
         message: 'How should people test the product?'
     }
 ];
 
-const mockData = {
-    title: 'game-finder',
-    github: 'sithSlave',
-    confirmEmail: true,
-    email: 'talk2joshbgosh@gmail.com',
-    description: 'an app to help users determine what game to buy. It also shows you where you can buy the game, and displays reviews.',
-    installInstructions: 'https://sithslave.github.io/game-finder/',
-    usageInfo: 'Clone the repo, and do what ever you would like with it as long as you adhere to the usage license',
-    licenseInfo: 'Public Domain',
-    contGuide: 'Clone the repository, push to the develop branch of my github page with the new developments. Your code will be reviewed. If it is up to standard, it will be merged to master.',
-    testInstructions: 'You may test this on your local machine since it is a web app, and can be tested through your browser.'
-  }
-
 const promptUser = () => {
-    // inquirer.prompt(questions)
-    // .then(data => {
-    //     console.log(data);
-    //     
-    writeToFile(mockData);
-    // })
+    inquirer.prompt(questions)
+        .then(data => {
+            console.log(data);
+            writeToFile(data);
+        })
 }
 
 // function to write README file
@@ -121,7 +107,7 @@ function writeToFile(data) {
             });
         });
     })
-    
+
 }
 
 // function to initialize program
