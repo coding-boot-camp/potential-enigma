@@ -61,10 +61,16 @@ const questions = [
         message: 'How do you install the application?'
     },
     {
-        type: 'list',
+        type: 'input',
         name: 'usageInfo',
-        message: 'Select the usage license for the product.',
+        message: 'How can people use your app?',
         choices: ['Public Domain', 'Permissive', 'Copyleft (Protective)', 'Noncommercial', 'Proprietary', 'Trade secret']
+    },
+    {
+        type: 'list',
+        name: 'licenseInfo',
+        message: 'Select the usage license for the product.',
+        choices: ['Public Domain', 'Permissive', 'Copyleft', 'Noncommercial', 'Proprietary', 'Trade secret']
     },
     {
         type: 'input',
@@ -85,7 +91,8 @@ const mockData = {
     email: 'talk2joshbgosh@gmail.com',
     description: 'an app to help users determine what game to buy. It also shows you where you can buy the game, and displays reviews.',
     installInstructions: 'https://sithslave.github.io/game-finder/',
-    usageInfo: 'Public Domain',
+    usageInfo: 'Clone the repo, and do what ever you would like with it as long as you adhere to the usage license',
+    licenseInfo: 'Public Domain',
     contGuide: 'Clone the repository, push to the develop branch of my github page with the new developments. Your code will be reviewed. If it is up to standard, it will be merged to master.',
     testInstructions: 'You may test this on your local machine since it is a web app, and can be tested through your browser.'
   }

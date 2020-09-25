@@ -1,8 +1,29 @@
 const generateSection = sectionArr => {
-  // switch (sectionArr[0]) {
-  //   case 
-  // }
-  let sectionMd = ``;
+  let sectionDetails = sectionArr[1];
+  let title = '';
+  switch (sectionArr[0]) {
+    case 'installInstructions':
+      title = 'Installation';
+      break;
+    case 'usageInfo':
+      title = 'Usage';
+      break;
+    case 'contGuide':
+      title = 'Contributing';
+      break;
+    case 'testInstructions':
+      title = 'Tests';
+      break;
+    case 'licenseInfo':
+      title = 'License'
+      break;
+  }
+
+  return `
+
+## ${title}
+
+${sectionDetails}`;
 }
 
 const generateOptSections = data => {
@@ -14,27 +35,66 @@ const generateOptSections = data => {
   }
   let sections = ``;
 
-  console.log(dataArr);
   for (let i = 0; i < dataArr.length; i++) {
-    console.log(dataArr[i][0]);
     if (dataArr[i][1]) {
       sections += generateSection(dataArr[i]);
     }
-  } 
+  }
 
   return sections;
+}
+
+const createBadge = licenseInfo => {
+  let tempLicense = licenseInfo.split(' ').join("%20");
+  let color;
+  switch (licenseInfo) {
+    case 'Public Domain':
+      color = 'green';
+      break;
+    case 'Permissive':
+      color = 'blue';
+      break;
+    case 'Copyleft':
+      color = 'yellow';
+      break;
+    case 'Noncommercial':
+      color = 'orange';
+      break;
+    case 'Proprietary':
+      color = 'red';
+      break;
+    case 'Trade secret':
+      color = 'blueviolet';
+      break;
+  }
+  let badgeEndpoint = `https://img.shields.io/badge/license-${tempLicense}-${color}`;
+
+  return `![](${badgeEndpoint})`;
+}
+
+const displayEmail = data => {
+  if (data.confirmEmail) {
+    return `
+
+
+[${data.email}](mailto:${data.email})`;
+  } else {
+    return ``;
+  }
 }
 
 // function to generate markdown for README
 function generateMarkdown(data) {
   let title = data.title.toUpperCase();
-  return `# ${title}
+  return `# ${title}          ${createBadge(data.licenseInfo)}
 
 ## Description
 
   ${data.description}${generateOptSections(data)}
 
 ## Questions
+
+[You can see more projects I have created here](https://github.com/${data.github}/) ${displayEmail(data)}
 
 `;
 };
