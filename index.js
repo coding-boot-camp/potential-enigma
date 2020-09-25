@@ -1,3 +1,4 @@
+// imports
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown.js');
 const fs = require('fs');
@@ -84,10 +85,10 @@ const questions = [
     }
 ];
 
+// a function to prompt the user with questions.
 const promptUser = () => {
     inquirer.prompt(questions)
         .then(data => {
-            console.log(data);
             writeToFile(data);
         })
 }
@@ -107,13 +108,7 @@ function writeToFile(data) {
             });
         });
     })
-
-}
-
-// function to initialize program
-function init() {
-    promptUser();
 }
 
 // function call to initialize program
-init();
+promptUser();
