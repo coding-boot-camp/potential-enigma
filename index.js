@@ -102,7 +102,7 @@ function init() {
             return generateMarkdown(userInput);
         })
         .then(readMe => {
-            return writeToFile("README-generated.md", readMe)
+            return writeToFile("./dist/README-generated.md", readMe)
         })
         .then(response => {
             console.log(response);

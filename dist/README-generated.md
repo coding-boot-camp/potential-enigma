@@ -15,17 +15,14 @@
   - [Tests](#tests)  
   - [Questions](#questions)  
 
-  ### Installation: 
-  Required modules:  
-  - inquirer  
-  
+  ### Installation:  
   clone repo and install needed modules then run using "node index.js"  
 
   ### Usage:  
   generates readme  
 
   ### Credits:  
-  made by jordan  
+  made my jordan  
 
   ### License:
   This app utilizes a MIT license.
@@ -35,7 +32,7 @@
     
 
   ### Tests:  
-  [Test Video](https://drive.google.com/file/d/1uzttOUYiu4R3pV33IzqDjF7fZaOEDOh0/view)
+  test video  
   
   ### Questions:  
   To check out my other projects, please visit my Github profile:  
