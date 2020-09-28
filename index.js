@@ -58,12 +58,11 @@ const promptUser = () => {
             name: 'license',
             message: 'Please select a license.',
             choices: [
-                "Apache License 2.0 (Apache-2.0)",
-                "GNU General Public License (GPL)",
-                "GNU Lesser General Public License (LGPL)",
-                "MIT license (MIT)",
-                "Mozilla Public License 2.0 (MPL-2.0)",
-                "None"
+                "Apache-2.0",
+                "GPL",
+                "LGPL",
+                "MIT",
+                "MPL-2.0",
             ]
         },
         {
@@ -87,9 +86,23 @@ const promptUser = () => {
             message: 'What is your email address?'
         },
     ])
-        .then(userResponse => {
-            const readMe = generateMarkdown(userResponse);
-            return writeToFile(readMe)
+};
+
+// function to write README file
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, err => {
+        if (err) throw err;
+    })
+}
+
+// function to initialize program
+function init() {
+    promptUser()
+        .then(userInput => {
+            return generateMarkdown(userInput);
+        })
+        .then(readMe => {
+            return writeToFile("README-generated.md", readMe)
         })
         .then(response => {
             console.log(response);
@@ -97,20 +110,6 @@ const promptUser = () => {
         .catch(err => {
             console.log(err);
         });
-};
-
-// function to write README file
-function writeToFile(fileName, data) {
-    fs.writeFile(fileName, generateMarkdown(data), err =>
-    {
-        if (err) throw err;
-        
-    })
-}
-
-// function to initialize program
-function init() {
-
 }
 
 // function call to initialize program
