@@ -1,16 +1,4 @@
-// array of questions for user
-const questions = [
+//const profileDataArgs = process.argv.slice(2, process.argv.length);
+//console.log(profileDataArgs);
 
-];
-
-// function to write README file
-function writeToFile(fileName, data) {
-}
-
-// function to initialize program
-function init() {
-add
-}
-
-// function call to initialize program
-init();
+const generatePage = () => 'Name: Jane, Github: janehub';
