@@ -6,14 +6,14 @@ const renderLicenseBadge = license => {
     case 'Apache License 2.0':
       licenseBadge = '[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)'
       break;
-    case 'GNU General Public License v3.0':
-      licenseBadge = '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)'
+    case 'Eclipse Public License 1.0':
+      licenseBadge = '[![License](https://img.shields.io/badge/License-EPL%201.0-red.svg)](https://opensource.org/licenses/EPL-1.0)'
       break;
     case 'MIT':
       licenseBadge = '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)'
       break;
-    case 'The Unlicense':
-      licenseBadge = '[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)'
+    case 'Mozilla Public License 2.0':
+      licenseBadge = '[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)'
       break;
     default:
       licenseBadge = ``
@@ -23,7 +23,23 @@ const renderLicenseBadge = license => {
 }
 
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) { }
+
+//Create variable for typeOf selection 
+let typeOfChoice = {
+  if (data.typeOf === 'Node.js' || data.typeOf === 'installOther'){
+  data.website = ' '
+  }
+  }else {
+  if (data.typeOf === 'Website') || data.typeOf === 'installOther') {
+    data.installNode = ' '
+  }
+  }else {
+  if (data.typeOf === 'Website' || data.typeOf === 'installNode') {
+    data.installOther = ' '
+  }
+    
+};
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
@@ -31,7 +47,7 @@ function generateMarkdown(data) {
   return `#Title 
   ${data.title}
 
-  # Description
+  #Description
   ${data.description}
 
   #Badges
@@ -49,22 +65,8 @@ function generateMarkdown(data) {
   ${data.typeOf}
   
   #Installation
-  if(data.typeOf === 'Node.js' || data.typeOf === 'Other'){
-  data.website = ' '
-  }
-  }else{
-  ${data.website}
-  
-  if(data.typeOf === 'Website' || data.typeOf === 'Other'){
-  data.installNode = ' '
-  }
-  }else{
-  ${data.installNode}
-  if(data.typeOf === 'Website' || data.typeOf === 'Node.js'){
-  data.installOther = ' '
-  }
-  }else{
-  ${data.installOther}
+
+  ${data.typeOfChoice}
 
   #Usage
   ${data.usage}
