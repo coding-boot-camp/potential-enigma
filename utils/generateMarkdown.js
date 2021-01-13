@@ -1,5 +1,4 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+// Renders License badges
 const renderLicenseBadge = license => {
   let licenseBadge = ''
   switch (license) {
@@ -39,19 +38,19 @@ function checkIfUndefined(data){
     
 
 
-// TODO: Create a function to generate markdown for README
+// Function to generate markdown for README
 function generateMarkdown(data) {
   const badge = renderLicenseBadge(data.license);
-  return `#Title 
+  return `# Title 
   ${data.title}
 
-  #Description
+  # Description
   ${data.description}
 
-  #Badges
+  # Badges
   ${badge}
 
-  #Table of contents
+  # Table of contents
   * [Installation](#installation)
   * [Usage](#usage)
   * [Contribute](#contribute)
@@ -59,29 +58,29 @@ function generateMarkdown(data) {
   * [License](#license)
   * [Questions](#questions)
 
-  #Type of Project
+  # Type of Project
   ${data.typeOf}
   
-  #Installation
+  # Installation  <a name="installation"></a>
 
   ${checkIfUndefined(data.website)}  
   ${checkIfUndefined(data.installNode)}  
   ${checkIfUndefined(data.installOther)}
 
 
-  #Usage
+  # Usage  <a name="usage"></a>
   ${data.usage}
 
-  #Tests
+  # Tests  <a name="tests"></a>
   ${data.tests}
 
-  #Contribute
+  # Contribute  <a name="contribute"></a>
   ${data.contribute}
 
-  #License
+  # License  <a name="license"></a>
   ${data.license}
 
-  #Questions
+  # Questions  <a name="questions"></a>
   If you have any questions feel free to reach out through email or GitHub.
   GitHub: [${data.username}](https://github.com/${data.username})
   Email: [${data.email}](mailto:${data.email})
