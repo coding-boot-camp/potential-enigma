@@ -61,7 +61,7 @@ function generateMarkdown(data) {
   # Type of Project
   ${data.typeOf}
   
-  # Installation  <a name="installation"></a>
+  # Installation 
 
   ${checkIfUndefined(data.website)}  
   ${checkIfUndefined(data.installNode)}  
