@@ -28,9 +28,6 @@ function renderLicenseSection(license) { }
 //Checking for undefined selections  
 function checkIfUndefined(data){
   let dataValue;
-  console.log("typeof data: ", typeof data !== 'undefined');
-  console.log("typeof: ", typeof data);
-  console.log("data: ", data);
   if(typeof data !== 'undefined'){
        dataValue = data;
   }else{
@@ -71,6 +68,7 @@ function generateMarkdown(data) {
   ${checkIfUndefined(data.installNode)}  
   ${checkIfUndefined(data.installOther)}
 
+
   #Usage
   ${data.usage}
 
@@ -89,5 +87,6 @@ function generateMarkdown(data) {
   Email: [${data.email}](mailto:${data.email})
 `;
 }
+
 
 module.exports = generateMarkdown;

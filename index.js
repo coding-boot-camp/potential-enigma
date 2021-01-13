@@ -140,5 +140,5 @@ const init = () => {
             writeToFile("./dist/README.md", markdownFile)
         })
 }
-// Function call to initialize app
+// Function call to initialize app 
 init();
