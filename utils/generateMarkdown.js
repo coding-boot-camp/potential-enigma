@@ -68,19 +68,19 @@ function generateMarkdown(data) {
   ${checkIfUndefined(data.installOther)}
 
 
-  # Usage  <a name="usage"></a>
+  # Usage  
   ${data.usage}
 
-  # Tests  <a name="tests"></a>
+  # Tests  
   ${data.tests}
 
-  # Contribute  <a name="contribute"></a>
+  # Contribute  
   ${data.contribute}
 
-  # License  <a name="license"></a>
+  # License  
   ${data.license}
 
-  # Questions  <a name="questions"></a>
+  # Questions  
   If you have any questions feel free to reach out through email or GitHub.
   GitHub: [${data.username}](https://github.com/${data.username})
   Email: [${data.email}](mailto:${data.email})
