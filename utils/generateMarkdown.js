@@ -25,21 +25,19 @@ const renderLicenseBadge = license => {
 // If there is no license, return an empty string
 function renderLicenseSection(license) { }
 
-//Create variable for typeOf selection 
-let typeOfChoice = {
-  if (data.typeOf === 'Node.js' || data.typeOf === 'installOther'){
-  data.website = ' '
+//Checking for undefined selections  
+function checkIfUndefined(data){
+  let dataValue;
+  if(typeof data !== 'undefined'){
+       dataValue = data;
+  }else{
+       dataValue = '';
   }
-  }else {
-  if (data.typeOf === 'Website') || data.typeOf === 'installOther') {
-    data.installNode = ' '
-  }
-  }else {
-  if (data.typeOf === 'Website' || data.typeOf === 'installNode') {
-    data.installOther = ' '
-  }
+  return dataValue
+}
+
     
-};
+
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
@@ -66,7 +64,7 @@ function generateMarkdown(data) {
   
   #Installation
 
-  ${data.typeOfChoice}
+  ${data.checkIfUndefined}
 
   #Usage
   ${data.usage}
