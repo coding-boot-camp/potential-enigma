@@ -28,6 +28,9 @@ function renderLicenseSection(license) { }
 //Checking for undefined selections  
 function checkIfUndefined(data){
   let dataValue;
+  console.log("typeof data: ", typeof data !== 'undefined');
+  console.log("typeof: ", typeof data);
+  console.log("data: ", data);
   if(typeof data !== 'undefined'){
        dataValue = data;
   }else{
@@ -64,7 +67,9 @@ function generateMarkdown(data) {
   
   #Installation
 
-  ${data.checkIfUndefined}
+  ${checkIfUndefined(data.website)}  
+  ${checkIfUndefined(data.installNode)}  
+  ${checkIfUndefined(data.installOther)}
 
   #Usage
   ${data.usage}
