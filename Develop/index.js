@@ -1,10 +1,10 @@
 // TODO: Include packages needed for this application
+const fs = require('fs');
 const inquirer = require('inquirer');
-
-const {prompt} = inquirer;
-const generateMarkdown = require('./utils/generateMarkdown');
+const generateMarkdown = require("./utils/generateMarkdown");
+console.log(document);
 // TODO: Create an array of questions for user input
-const questions = [
+inquirer.prompt = [
     {
         type: 'input',
         name: 'title',
@@ -29,17 +29,19 @@ const questions = [
         type: 'checkbox',
         name: 'license',
         message: 'enter applicable license',
-        choices: ['MIT', 'apache-2.0', 'gpl-2.0']
+        choices: ['MIT', 'The GPL', 'Apache License', 'GNU License']
     },
     {
         type: 'input',
-        name: 'username',
+        name: 'Github username',
         message: 'Please contact me! I can be reached at this link.'
     }
 ];
 
+
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile() {
+}
 
 // TODO: Create a function to initialize app
 function init() {}
