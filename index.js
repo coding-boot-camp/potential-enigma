@@ -49,10 +49,19 @@ const questions = () => {
 }
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+const writeToFile = (fileName, data) => {
+
+}
 
 // TODO: Create a function to initialize app
-function init() {}
+const init = () => {
+    inquirer.prompt(questions)
+    .then((data) => {
+        console.log("Generating README...");
+        writeToFile();
+    })
+    .catch (err => console.log(err));
+};
 
 // Function call to initialize app
 init();
