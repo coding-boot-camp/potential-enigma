@@ -8,13 +8,13 @@ const questions = [
     {
         type: 'input',
         name: 'readMeTitle',
-        message: 'What would you like the title to be?',
+        message: 'What is the title of your project?',
         default: 'README Title',
     },
     {
         type: 'input',
         name: 'description',
-        message: 'What is the description?',
+        message: 'Description of your project:',
         default: 'Project Description goes here',
     },
     {
@@ -44,7 +44,7 @@ const questions = [
         type: 'list',
         name: 'license',
         message: 'License Options:',
-        choices: ['Option 1', 'Option 2', 'Option 3'],
+        choices: ['MIT', 'Apache', 'GPL'],
         filter(val) {
             return val.toLowerCase();
         },
