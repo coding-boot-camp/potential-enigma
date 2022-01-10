@@ -1,0 +1,22 @@
+{
+  "name": "potential-enigma",
+  "version": "1.0.0",
+  "description": "readme project",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bspratford7719/potential-enigma.git"
+  },
+  "author": "brittany",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bspratford7719/potential-enigma/issues"
+  },
+  "homepage": "https://github.com/bspratford7719/potential-enigma#readme",
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  }
+}
