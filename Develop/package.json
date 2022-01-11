@@ -17,6 +17,9 @@
   },
   "author": "sbrack8",
   "license": "ISC",
+  "bugs":{
+    "url": "https://github.com/sbrack8/README-Generator/issues"
+  },
   "dependencies": {
     "inquirer": "^6.3.1"
   }
