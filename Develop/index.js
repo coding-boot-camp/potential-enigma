@@ -156,14 +156,30 @@ const questions = [{
         }
     }
 },
-
 ];
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+// Function to write README file
+function writeToFile(fileName, data) {
+fs.writeFile('README.md', data, error => {
+    // handle errors
+    if (error) {throw error};
+    else {console.log('README created!')}
+    })
+}
 
-// TODO: Create a function to initialize app
-function init() {}
+// Function to initialize app
+function init() {
+    inquirer.prompt(questions)
+    .then(answers => {
+        if (answers) {
+            console.log('Successful initialization!')
+        } else {
+            console.log('Something went wrong :(')
+        }
+        const data = generateMarkdown.generateMarkdown(answers)
+        writeToFile(data);
+    })
+}
 
 // Function call to initialize app
 init();
