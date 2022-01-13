@@ -12,7 +12,7 @@ const questions = [{
     // github username
     type: 'input',
     name: 'username',
-    message: 'Ussername on GitHub:',
+    message: 'Username on GitHub:',
     validate: nameInput => {
         if (nameInput) {
             return true;
@@ -58,7 +58,7 @@ const questions = [{
 {
     type: 'input',
     name: 'description',
-    message: 'Describe your project:'
+    message: 'Describe your project:',
     validate: nameInput => {
         if (nameInput) {
             return true;
@@ -71,10 +71,10 @@ const questions = [{
 
     // license choosing
 {
-    type: 'checkbox',
+    type: 'list',
     name: 'license',
     message: 'Choose a license:',
-    choices: ['MIT', 'GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla', 'Apache', 'MIT', 'Boost', 'Unlicense'],
+    choices: ['MIT', 'GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla', 'Apache', 'Boost', 'Unlicense', 'None'],
     validate: nameInput => {
         if (nameInput) {
              return true;
@@ -90,7 +90,7 @@ const questions = [{
     type: 'input',
     name: 'install',
     message: 'Installation instructions for your project:',
-    validate: nameInput {
+    validate: nameInput => {
         if (nameInput) {
             return true;
         } else {
@@ -115,32 +115,18 @@ const questions = [{
     }   
 },
 
-    // contribution confirmation
-{
-    type: 'confirm',
-    name 'confirmContributors',
-    message: 'Do you allow others to contribute to this repository?'
-},
-
     // contribution instructions
 {
     type: 'input',
-    name: 'contributionInfo'
+    name: 'contributionInfo',
     message: 'Others can contribute by',
-    when: ({confirmContributors}) => {
-        if (confirmContributors) {
+    validate: nameInput => {
+        if (nameInput) {
             return true;
         } else {
-            return false;
+            console.log('Contributing instructions required!');
         }
     }
-},
-
-    // testing confirmation
-{
-    type: 'confirm',
-    name: 'confirmTesting'
-    message: 'Can others use testing??'
 },
 
     //  testing instructions
@@ -148,24 +134,43 @@ const questions = [{
     type: 'input',
     name: 'testing',
     message: 'Others can use testing by',
-    when: ({confirmTesting}) => {
-        if (confirmTesting) {
+    validate: nameInput => {
+        if (nameInput) => {
+            return true;
+        } else {
+            console.log('Testing instructions required!');
+        }
+    }
+},
+
+    // for questions
+{
+    type: 'input',
+    name: 'anyQuestions',
+    message: 'Others can reach you by:',
+    validate: (nameInput) => {
+        if (nameInput) {
             return true;
         } else {
             return false;
         }
     }
-},
+}
 ];
 
 // Function to write README file
 function writeToFile(fileName, data) {
-fs.writeFile('README.md', data, error => {
-    // handle errors
-    if (error) {throw error};
-    else {console.log('README created!')}
+    fs.writeFile('README.md', data, error => {
+        // handle errors
+        if (error) {
+            console.log(error);
+            return;
+        } else {
+            console.log('README has been created')
+        }
     })
 }
+
 
 // Function to initialize app
 function init() {
