@@ -1,10 +1,9 @@
 // required modules
 const fs = require('fs');
 const inquirer = require('inquirer');
-const { type } = require('os');
 
 // link to where the README is actually created
-const generateMarkdown = require('./utils/generateMarkdown');
+const generateMarkdown = require('./Develop/utils/generateMarkdown');
 
 // Array of questions for user input
 const questions = [{
@@ -134,8 +133,8 @@ const questions = [{
     type: 'input',
     name: 'testing',
     message: 'Others can use testing by',
-    validate: nameInput => {
-        if (nameInput) => {
+    validate: (nameInput) => {
+        if (nameInput) {
             return true;
         } else {
             console.log('Testing instructions required!');
@@ -148,7 +147,7 @@ const questions = [{
     type: 'input',
     name: 'anyQuestions',
     message: 'Others can reach you by:',
-    validate: (nameInput) => {
+    validate: nameInput => {
         if (nameInput) {
             return true;
         } else {
@@ -181,7 +180,7 @@ function init() {
         } else {
             console.log('Something went wrong :(')
         }
-        const data = generateMarkdown.generateMarkdown(answers)
+        const data = generateMarkdown(answers)
         writeToFile(data);
     })
 }
