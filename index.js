@@ -1,9 +1,10 @@
 // required modules
 const fs = require('fs');
 const inquirer = require('inquirer');
+const path = require('path');
 
 // link to where the README is actually created
-const generateMarkdown = require('./Develop/utils/generateMarkdown');
+const generateMarkdown = require('./utils/generateMarkdown');
 
 // Array of questions for user input
 const questions = [{
@@ -159,15 +160,8 @@ const questions = [{
 
 // Function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFile('README.md', data, error => {
-        // handle errors
-        if (error) {
-            console.log(error);
-            return;
-        } else {
-            console.log('README has been created')
-        }
-    })
+   return fs.writeFileSync(path.join(__dirname, fileName), data)
+    
 }
 
 
@@ -181,7 +175,7 @@ function init() {
             console.log('Something went wrong :(')
         }
         const data = generateMarkdown(answers)
-        writeToFile(data);
+        writeToFile('README.md', data);
     })
 }
 
