@@ -34,12 +34,6 @@ const questions = () => {
       }
     },
     {
-      type:'checkbox',
-      name: 'table-of-contents',
-      message: 'What sections would you like to include in the Table of Contents?',
-      choices: ['Title of Project', 'Description', 'Table of Contents', 'Installation', 'Usage', 'License', 'Contributing', 'Tests', 'Questions'] 
-    },
-    {
       type: 'input',
       name: 'installation',
       message: 'Provide installation instructions. (Required)',
@@ -67,9 +61,17 @@ const questions = () => {
     },
     {
       type: 'checkbox',
-      name: 'licenses',
+      name: 'license',
       message: 'Select which license(s) you would like to use.',
-      choices: ['MIT', 'GPLv2.0', 'GPLv3.0', 'OSLv3.0']
+      choices: ['MIT', 'GPL', 'OSL'],
+      validate: licenseInput => {
+        if (licenseInput) {
+          return true;
+        } else {
+          console.log('You must enter a license!');
+          return false;
+        } 
+      }
     },
     {
       type: 'input',
@@ -99,13 +101,26 @@ const questions = () => {
     },
     {
       type:'input',
-      name: 'contact',
-      message: 'Please enter email and github project link (Required)',
-      validate: contactInput => {
-        if (contactInput) {
+      name: 'email',
+      message: 'Please enter your email (Required)',
+      validate: emailInput => {
+        if (emailInput) {
           return true;
         } else {
-          console.log('You must enter your email and github project link!');
+          console.log('You must enter your email!');
+          return false;
+        }
+      }    
+    },
+    {
+      type:'input',
+      name: 'github',
+      message: 'Please enter your GitHub username (Required)',
+      validate: githubInput => {
+        if (githubInput) {
+          return true;
+        } else {
+          console.log('You must enter your GitHub username!');
           return false;
         }
       }    
