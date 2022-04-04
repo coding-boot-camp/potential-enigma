@@ -116,7 +116,17 @@ const questions = () => {
 function writeToFile(fileName, data) {}
 
 // TODO: Create a function to initialize app
-function init() {}
+const init = () => {
+  questions()
+    .then(answers => {
+      return generateMarkdown(answers);
+    })
+    .then(writeFile => {
+      return writeFile('README.md');
+    })
+    .then(() => console.log('Success!'))
+    .catch((err) => console.log(err)); 
+};
 
 // Function call to initialize app
 init();
