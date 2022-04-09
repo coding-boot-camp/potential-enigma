@@ -1,13 +1,14 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
+const portfolioData = {}
 
 // TODO: Create an array of questions for user input
 
 if (!portfolioData.projects) {
     portfolioData.projects = [];
   }
-  return inquirer
+  inquirer 
     .prompt([
       {
         type: 'input',
@@ -35,7 +36,8 @@ if (!portfolioData.projects) {
           }
         }
       },
-      type: 'input',
+      {
+      type: 'input', 
       name: 'installation instructions',
       message: 'Provide instructions for user to intall your project (Required)',
       validate: descriptionInput => {
@@ -47,6 +49,7 @@ if (!portfolioData.projects) {
         }
       }
     },
+    {
     type: 'input',
     name: 'usage information',
     message: 'Provide an explanation for the projects use (Required)',
@@ -59,6 +62,7 @@ if (!portfolioData.projects) {
       }
     }
   },
+  {
   type: 'input',
   name: 'Contributors',
   message: 'Please name all contributing developers(Required)',
@@ -106,7 +110,12 @@ if (!portfolioData.projects) {
         return portfolioData;
       }
     });
-};
+ // };
+
+// what is prompt user supposed to do
+// define functions below, prompts, init
+// read docs for fs and require
+// check write to file process 
 
 promptUser()
   .then(promptProject)
@@ -127,7 +136,24 @@ promptUser()
     console.log(err);
   });
 // TODO: Create a function to write README file
+// added by Travis
 function writeToFile(fileName, data) {}
+
+const writeFile = fileContent => {
+  return new Promise((resolve, reject) => {
+    fs.writeFile('./index.html', fileContent, err => {
+      if (err) {
+        reject(err);
+        return;
+      }
+
+      resolve({
+        ok: true,
+        message: 'File created!'
+      });
+    });
+  });
+};
 
 // TODO: Create a function to initialize app
 function init() {}
