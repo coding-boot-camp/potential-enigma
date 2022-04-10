@@ -1,8 +1,8 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
-const { generateMarkdown } = require('./utils/generateMarkdown');
-const portfolioData = {}
+const generateMarkdown = require('./utils/generateMarkdown');
+const portfolioData = {};
  
 
 // TODO: Create an array of questions for user input
@@ -138,12 +138,12 @@ promptUser()
     console.log(err);
   });
 // TODO: Create a function to write README file
-// added by Travis
+ 
 function writeToFile(fileName, data) {}
 
 const writeFile = fileContent => {
   return new Promise((resolve, reject) => {
-    fs.writeFile('./index.html', fileContent, err => {
+    fs.writeFile('./readme.md', fileContent, err => {
       if (err) {
         reject(err);
         return;
