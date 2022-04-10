@@ -1,14 +1,16 @@
 // TODO: Include packages needed for this application
-const fs = require('fs');
+//const fs = require('fs');
 const inquirer = require('inquirer');
 const portfolioData = {}
 
-// TODO: Create an array of questions for user input
+//const { writeFile, copyFile } = require('./utils/generateMarkdown');
+
+//TODO: Create an array of questions for user input
 
 if (!portfolioData.projects) {
     portfolioData.projects = [];
   }
-  inquirer 
+  return inquirer 
     .prompt([
       {
         type: 'input',
@@ -110,7 +112,7 @@ if (!portfolioData.projects) {
         return portfolioData;
       }
     });
- // };
+// };
 
 // what is prompt user supposed to do
 // define functions below, prompts, init
@@ -156,7 +158,13 @@ const writeFile = fileContent => {
 };
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+  promptReadme
+  then((promptReadme) => {generatePage(readme) })
+  .catch((error) => {
+    console.log(generatePage)
+  })
+}
 
 // Function call to initialize app
 init();
