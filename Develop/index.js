@@ -1,14 +1,16 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
+const { generateMarkdown } = require('./utils/generateMarkdown');
 const portfolioData = {}
+ 
 
 // TODO: Create an array of questions for user input
 
 if (!portfolioData.projects) {
     portfolioData.projects = [];
   }
-  return inquirer 
+  inquirer 
     .prompt([
       {
         type: 'input',
@@ -139,21 +141,21 @@ promptUser()
 // added by Travis
 function writeToFile(fileName, data) {}
 
-// const writeFile = fileContent => {
-//   return new Promise((resolve, reject) => {
-//     fs.writeFile('./index.html', fileContent, err => {
-//       if (err) {
-//         reject(err);
-//         return;
-//       }
+const writeFile = fileContent => {
+  return new Promise((resolve, reject) => {
+    fs.writeFile('./index.html', fileContent, err => {
+      if (err) {
+        reject(err);
+        return;
+      }
 
-//       resolve({
-//         ok: true,
-//         message: 'File created!'
-//       });
-//     });
-//   });
-// };
+      resolve({
+        ok: true,
+        message: 'File created!'
+      });
+    });
+  });
+};
 
 // TODO: Create a function to initialize app
 function init() {
