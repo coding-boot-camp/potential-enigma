@@ -50,7 +50,7 @@ const promptQuestions = () => {
      },
      {
        type: "confirm",
-       name: "confirmUsage",
+       name: "usage",
       message: "would you like you give instructions for you application?",
        default: true,
      },
@@ -60,6 +60,19 @@ const promptQuestions = () => {
        message: "Please provide application instructions:",
        when: ({ confirmUsage }) => confirmUsage,
      },
+     {
+      type: "input",
+      name: "contributing",
+      message: "Please provide any written test for you application:",
+      when: ({ confirmContributing }) => confirmContributing,
+     },
+     {
+      type: "input",
+      name: "test",
+      message: "Please provide any written test for you application:",
+      when: ({ confirmTest }) => confirmTest,
+     },
+     
   ]);
 };
 

@@ -21,7 +21,7 @@ function renderLicenseBadge(license) {
   }
   
    
-  const generateMarkdown = ({description,Usage,Installation,license}) => {
+  const generateMarkdown = ({description,usage,installation,license,contributing,test}) => {
    
   
      return `#  ${description}
@@ -40,22 +40,23 @@ function renderLicenseBadge(license) {
   - [License](#license)
   
   ## Installation
-  ${Installation}
+  ${installation}
   What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
   
   ## Usage
   
-  ${Usage}
+  ${usage}
   
   Provide instructions and examples for use. Include screenshots as needed.
   
-   To add a screenshot, create an `` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+   To add a screenshot, create an \`\`\ folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
   
-       ```
+       \`\`\`\
        
-       ```
+       \`\`\`\
   
    ## Credits
+   ${contributing}
   
   List your collaborators, if any, with links to their GitHub profiles.
   
@@ -90,7 +91,7 @@ function renderLicenseBadge(license) {
   If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
   
   ## Tests
-  
+  ${test}
   Go the extra mile and write tests for your application. Then provide examples on how to run them here.
   
   `;
