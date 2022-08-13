@@ -51,9 +51,9 @@ function renderLicenseBadge(license) {
   
    To add a screenshot, create an \`\`\ folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
   
-       \`\`\`\
+   <iframe src="https://drive.google.com/file/d/1Ixady4Wjhh2hny0-4sQi3Y-ZE4rFjyc8/preview" width="640" height="480"></iframe>
        
-       \`\`\`\
+   
   
    ## Credits
    ${contributing}
