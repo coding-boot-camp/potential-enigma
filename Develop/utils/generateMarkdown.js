@@ -44,7 +44,9 @@ ${data.test}
 
 <a name="questions"></a>
 ## Questions
-${data.github}
+Name: ${data.name}
+Username: ${data.github}
+GitHub URL: <a href= "https://github.com/${data.github}"> </a>
 You can reach me at ${data.email} with any questions you may have.
 
 `;

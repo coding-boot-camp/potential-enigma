@@ -1,10 +1,8 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown');
-// const generatePage = require('./src/potential-enigma');
- const { writeFile } = require('./utils/helpers.js');
-
-
+const { writeFile } = require('./utils/helpers.js');
+// Install Prompt
 function promptInstall () {
 
     return inquirer.prompt([
@@ -22,7 +20,7 @@ function promptInstall () {
         }    
     }])
 }
-  
+ // Usage Prompt 
 function promptUsage () {
 
     return inquirer.prompt([
@@ -41,6 +39,7 @@ function promptUsage () {
     }
     ])
 }
+// Contribution Prompt
 function promptContribution () {
 
     return inquirer.prompt([
@@ -58,7 +57,7 @@ function promptContribution () {
         }    
     }])
 }
-  
+// Test Prompt 
 function promptTest () {
 
     return inquirer.prompt([
@@ -77,7 +76,7 @@ function promptTest () {
     }
     ])
 }
-
+// Questions Prompt
 function promptUser() {
     
         return inquirer.prompt([
@@ -123,6 +122,7 @@ function promptUser() {
         ]);
     
 }
+// Project info Prompt
 function promptProject () {
 
     return inquirer.prompt([
@@ -161,7 +161,7 @@ function init() {}
 init();
 
 var inputData = {};
-
+// Prompt each question one by one
 promptUser()
     .then(input => {
     inputData.name = input.name;
