@@ -1,0 +1,22 @@
+{
+  "name": "potential-enigma",
+  "version": "1.0.0",
+  "description": "Create README",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edpris10/potential-enigma.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edpris10/potential-enigma/issues"
+  },
+  "homepage": "https://github.com/edpris10/potential-enigma#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
+}
