@@ -1,0 +1,23 @@
+{
+  "name": "pro-readme-generator",
+  "version": "1.0.0",
+  "description": "[How to create a Professional README](https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kcschaefs/pro-readme-generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kcschaefs/pro-readme-generator/issues"
+  },
+  "homepage": "https://github.com/kcschaefs/pro-readme-generator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
+}
