@@ -69,31 +69,16 @@ function writeToFile(fileName, data) {
 
 }
 
+//make sure to include in instructions that user will need to create an output folder (or create a directory if it doesn't exist but that will take time)
 
-// receive user input
 
-function userInput() {
+// TODO: Create a function to initialize app
+function init() {
   inquirer.prompt(questions).then(answers => {
     writeToFile("output/README.md", md.generateMarkdown(answers));
   })
 }
 
-
-// TODO: Create a function to initialize app
-function init() {
-  userInput();
-  // writeToFile("output/README.md", md.generateMarkdown({title: "titlekeystuffs", other: "test"}));
-  // md.generateMarkdown({title: "titlekeystuffs", other: "test"})
-}
-
 // Function call to initialize app
 init();
 
-
-// how you get user input
-
-
-// inquirer.prompt(questions).then(answers => {
-//   console.log(`Project Title: ${answers.title}`);
-//   console.log(`Project Title: ${answers.description}`);
-// });
