@@ -60,7 +60,7 @@ const questions = [
 ];
 
 function makeDirectory() { // this will create a directory file in the users' file structure to house the new README (only if it doesn't already exist)
-  if (!"./output") {
+  if (!fs.existsSync("./output")) {
     fs.mkdir("./output", function (err) {
       if (err) {
         console.log(err);
@@ -71,6 +71,7 @@ function makeDirectory() { // this will create a directory file in the users' fi
   } else {
     console.log("Directory file 'output' already exists.");
   }
+  
 }
 
 // TODO: Create a function to write README file
@@ -85,7 +86,7 @@ function writeToFile(fileName, data) {
 function init() {
   inquirer.prompt(questions).then(answers => {
     makeDirectory();
-    writeToFile("output/README.md", md.generateMarkdown(answers));
+    writeToFile("./output/README.md", md.generateMarkdown(answers));
   });
 }
 
