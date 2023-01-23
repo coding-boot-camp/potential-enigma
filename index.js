@@ -30,7 +30,7 @@ const questions = [
     type: 'list',
     name: 'license',
     message: "What license are you using?",
-    choices: ["Apache License 2.0", "GNU General Public License (GPL)", "MIT license"],
+    choices: ["Apache License 2.0", "GNU (GPL)", "MIT license", "None"],
   },
   {
     type: 'input',
@@ -61,24 +61,23 @@ const questions = [
 
 function makeDirectory() { // this will create a directory file in the users' file structure to house the new README (only if it doesn't already exist)
   if (!"./output") {
-  fs.mkdir("./output", function(err) {
-  if (err) {
-    console.log(err)
+    fs.mkdir("./output", function (err) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("Success! A new directory has been created.");
+      }
+    });
   } else {
-    console.log("Success! A new directory has been created.")
+    console.log("Directory file 'output' already exists.");
   }
-})
-} else {
-  console.log("Directory file 'output' already exists.");
 }
-};
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
   fs.writeFile(fileName, data, err => {
     err ? console.error(err) : console.log('Success! Your README file has been created. Check your "output" folder to view the document.')
-  })
-
+  });
 }
 
 
@@ -87,7 +86,7 @@ function init() {
   inquirer.prompt(questions).then(answers => {
     makeDirectory();
     writeToFile("output/README.md", md.generateMarkdown(answers));
-  })
+  });
 }
 
 // Function call to initialize app
