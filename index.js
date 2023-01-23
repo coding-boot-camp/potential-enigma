@@ -1,6 +1,5 @@
 
 //required packages to run the application
-
 const fs = require('fs');
 const inquirer = require('inquirer');
 const md = require('./utils/generateMarkdown.js');
@@ -60,21 +59,33 @@ const questions = [
   },
 ];
 
+function makeDirectory() { // this will create a directory file in the users' file structure to house the new README (only if it doesn't already exist)
+  if (!"./output") {
+  fs.mkdir("./output", function(err) {
+  if (err) {
+    console.log(err)
+  } else {
+    console.log("Success! A new directory has been created.")
+  }
+})
+} else {
+  console.log("Directory file 'output' already exists.");
+}
+};
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
   fs.writeFile(fileName, data, err => {
-    err ? console.error(err) : console.log('Success! Your README file has been created')
+    err ? console.error(err) : console.log('Success! Your README file has been created. Check your "output" folder to view the document.')
   })
 
 }
-
-//make sure to include in instructions that user will need to create an output folder (or create a directory if it doesn't exist but that will take time)
 
 
 // TODO: Create a function to initialize app
 function init() {
   inquirer.prompt(questions).then(answers => {
+    makeDirectory();
     writeToFile("output/README.md", md.generateMarkdown(answers));
   })
 }

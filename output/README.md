@@ -1,4 +1,4 @@
-# slkdfj 
+# Kristen's Super Cool README Generator 
 
   
   ## Table of Contents
@@ -13,32 +13,32 @@
   
   <a name="desc"></a>
   ## Description
-  lskdfj
+  This generator will produce a professional README file based upon user inputs.
 
 
   <a name="install"></a>
   ## Installation
-  slkjf
+  You will need to install inquirer 8.2.4.
   
 
   <a name="usage"></a>
   ## Usage
-  lskjf
+  You can use this project to create professional README files for whatever project you are creating. 
   
 
   <a name="license"></a>
   ## License
-  Apache License 2.0
+  MIT license
   
 
   <a name="contrib"></a>
   ## Contributors
-  sdlfkj
+  Kristen Schaefer
   
 
   <a name="test"></a>
   ## Testing
-  lkj
+  You will want to run this in Node on your terminal. Test as desired.
   
 
   <a name="questions"></a>
@@ -46,9 +46,9 @@
   GitHub: [kcschaefs](https://github.com/kcschaefs)
 
   
-  Email: kristencschaefer@gmail.com
+  Email: fakeemail@gmail.com
   
 
-  lksjfd
+  Please email me with any questions, concerns, or notices about bugs and errors you encounter.
   
 
