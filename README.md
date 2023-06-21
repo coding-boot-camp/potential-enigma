@@ -23,6 +23,7 @@ You will require NODE.
 4. Once all the fields are filled, README.MD will be generated in the respective directory. 
 
 ![alt text](/Develop/assets/screenshots/1.png)
+![alt text](/Develop/assets/screenshots/2.png)
 
 
 ## Credits
